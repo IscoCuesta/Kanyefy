@@ -35,6 +35,8 @@ $(document).ready(function(){
     $(".Display1").empty();
     $(".Display2").empty();
 
+    ChangeQuote();
+
     var ApiKey = "TFi9rHvgaCJV26uk7uT6C6aM1JlSFryF";
     var mood = $(this).attr("data");
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + ApiKey +"&q=kanye%20West%20" + mood +"&limit=25&offset=10&rating=G&lang=en";
@@ -98,6 +100,19 @@ $(document).ready(function(){
   //   downloading.then();
 
   // });
+
+  function ChangeQuote(){
+    
+
+    $.ajax({
+      url: "https://api.kanye.rest/",
+      method: "GET"
+    }).then(function(response) {
+
+      $(".Quote").text("'"+response.quote+ "'")
+
+    });
+  };
 
 });
 
