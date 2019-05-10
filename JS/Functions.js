@@ -53,11 +53,13 @@ $(document).ready(function(){
 
         var Display = $("<img>").addClass("mx-auto GifDisplay");
         var card = $("<p>").addClass("text-center");
+        var link = $("<a>").attr("href", activeUrl);
         var Download = $("<button>").attr("dataURL", activeUrl).addClass("btn btn-primary col-8 Download").text("Download");
 
+        link.append(Download);
         Display.attr("src", stillUrl).attr("state", "still");
         Display.attr("alt", "kanye gif").attr("still", stillUrl).attr("active", activeUrl);
-        card.append(Display, Download);
+        card.append(Display, link);
 
         if(i < 3){
         $(".Display0").prepend(card);
